@@ -1,4 +1,5 @@
 export default function taskBlock(trueOrFalse) {
+  /* changing var to const so that variables are not overwritten */
   const task = false;
   const task2 = true;
 
