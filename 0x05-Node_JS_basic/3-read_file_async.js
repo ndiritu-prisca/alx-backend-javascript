@@ -31,10 +31,13 @@ function countStudents(path) {
         }
       }
 
+      let msg = '';
+      let msg1 = '';
+      let msg2 = '';
       msg = `Number of students: ${lines.length - 1}`;
-      msg1 = `Number of students in CS: ${CSCount}. List: ${CSStudents.join(', ')}`
-      msg2 = `Number of students in SWE: ${SWECount}. List: ${SWEStudents.join(', ')}`
-      console.log(msg)
+      msg1 = `Number of students in CS: ${CSCount}. List: ${CSStudents.join(', ')}`;
+      msg2 = `Number of students in SWE: ${SWECount}. List: ${SWEStudents.join(', ')}`;
+      console.log(msg);
       response.push(msg);
       console.log(msg1);
       response.push(msg1);
