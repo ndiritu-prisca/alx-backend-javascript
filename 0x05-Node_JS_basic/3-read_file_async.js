@@ -17,6 +17,7 @@ function countStudents(path) {
       let CSCount = 0;
       const SWEStudents = [];
       const CSStudents = [];
+      const response = [];
 
       // Loop through each line and process the data
       for (const line of lines) {
@@ -30,11 +31,17 @@ function countStudents(path) {
         }
       }
 
-      console.log(`Number of students: ${lines.length - 1}`);
-      console.log(`Number of students in CS: ${CSCount}. List: ${CSStudents.join(', ')}`);
-      console.log(`Number of students in SWE: ${SWECount}. List: ${SWEStudents.join(', ')}`);
+      msg = `Number of students: ${lines.length - 1}`;
+      msg1 = `Number of students in CS: ${CSCount}. List: ${CSStudents.join(', ')}`
+      msg2 = `Number of students in SWE: ${SWECount}. List: ${SWEStudents.join(', ')}`
+      console.log(msg)
+      response.push(msg);
+      console.log(msg1);
+      response.push(msg1);
+      console.log(msg2);
+      response.push(msg2);
 
-      resolve();
+      resolve(response);
     });
   });
 }
