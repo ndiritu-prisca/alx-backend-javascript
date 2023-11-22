@@ -3,22 +3,18 @@ import readDatabase from '../utils';
 class StudentsController {
   static getAllStudents(request, response, DATABASE) {
     readDatabase(DATABASE)
-      .then((fields) => {
+      .then((lines) => {
         const students = [];
         // let count = 0;
         let msg;
 
-        // for (const key of Object.keys(fields)) {
-        //   count += fields[key].length;
-        // }
-
-        // students.push(`Number of students: ${count}`);
+        
         students.push('This is the list of our students');
 
-        for (const key of Object.keys(fields)) {
+        for (const key of Object.keys(lines)) {
           msg = `Number of students in ${key}: ${
-            fields[key].length
-          }. List: ${fields[key].join(', ')}`;
+            lines[key].length
+          }. List: ${lines[key].join(', ')}`;
 
           students.push(msg);
         }
@@ -36,8 +32,8 @@ class StudentsController {
       response.send(500, 'Major parameter must be CS or SWE');
     } else {
       readDatabase(DATABASE)
-        .then((fields) => {
-          const students = fields[major];
+        .then((lines) => {
+          const students = lines[major];
 
           response.send(200, `List: ${students.join(', ')}`);
         })
